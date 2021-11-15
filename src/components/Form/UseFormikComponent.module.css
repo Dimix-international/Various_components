@@ -1,0 +1,82 @@
+.input {
+    flex: 1 1 auto;
+    width: 100%;
+    border: 1px solid #000;
+    padding: 5px;
+    font-size: 18px;
+}
+.form__body {
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+}
+.form__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+.label {
+    flex: 0 0 150px;
+    font-size: 18px;
+}
+.btn {
+    width: 170px;
+    height: 40px;
+    align-self: flex-end;
+    background-color: #575656;
+    color:#fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    transition: all 0.3s;
+    margin: 5px 0;
+}
+.btn:disabled:hover{
+    background-color: #9a9a9a;
+}
+.btn:disabled{
+    background-color: #9a9a9a;
+}
+.btn:hover{
+    background-color: #6c6c6c;
+}
+.error {
+    display: block;
+    color:red;
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    left: 480px;
+    top:50%;
+    transform: translate(0, -50%);
+    white-space: nowrap;
+}
+.input2 {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-start;
+}
+.btnTwo {
+    border: 1px solid #000;
+    width: 30px;
+    height: 30px;
+}
+.containerWithBtn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.inputWithNumbers {
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+.btnValid {
+    width: 100%;
+    margin-bottom: 10px;
+}

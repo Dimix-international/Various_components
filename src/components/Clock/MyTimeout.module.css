@@ -1,0 +1,163 @@
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+/*--------------------*/
+
+.countdown {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(26, 26, 26);
+    color:#fff;
+    padding: 20px 0;
+}
+.box {
+    width: 28vmin;
+    height: 28vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+.box:after {
+    content: "";
+    position: absolute;
+    background-color: rgba(165, 164, 164, 0.12);
+    height: 100%;
+    width: 50%;
+    left: 0;
+}
+.num {
+    background-color: #202020;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 5em;
+    margin: 0;
+}
+.text {
+    font-size: 1.2em;
+    background-color: #2887e3;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0;
+    font-weight: 400;
+    margin: 0;
+}
+@media (max-width: 1024px) {
+    .countdown {
+        width: 85vw;
+    }
+    .box {
+        height: 26vmin;
+        width: 26vmin;
+        font-size: 12px;
+    }
+}
+@media (max-width: 768px) {
+    .countdown {
+        width: 90vw;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .box {
+        height: 30vmin;
+        width: calc(50% - 40px);
+        font-size: 14px;
+    }
+}
+@media (max-width: 480px) {
+    .countdown {
+        gap: 15px;
+    }
+    .box {
+        height: 25vmin;
+        width: 100%;
+        font-size: 8px;
+    }
+    .text {
+        font-size: 1.5em;
+    }
+}

@@ -1,0 +1,26 @@
+.ceil {
+    display: flex;
+    width: 90px;
+    height: 40px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-right:10px;
+    cursor: pointer;
+}
+.on, .off {
+    color:#fff;
+}
+.on {
+    background-color: green;
+}
+.off {
+    background-color: red;
+}
+.indicator {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}

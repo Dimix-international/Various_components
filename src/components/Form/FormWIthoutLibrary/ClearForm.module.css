@@ -1,0 +1,23 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    border: 5px solid purple;
+    border-radius: 20px;
+    padding: 15px;
+    width: 400px;
+}
+.btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 24px;
+    color:#fff;
+    background-color: #6f026f;
+    transition: all 0.3s ease-in;
+}
+.btn:hover{
+    background-color: #ad05ad;
+}

@@ -1,0 +1,26 @@
+.select {
+    width: 200px;
+}
+.title{
+    width: 100%;
+    min-height: 20px;
+    border: 1px solid #000;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.body {
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    transition: all 0.5s;
+    border: 1px solid #000;
+}
+.item{
+    cursor: pointer;
+    padding: 3px 0px;
+}
+.item.hover{
+    background-color: blue;
+    color:#fff;
+}

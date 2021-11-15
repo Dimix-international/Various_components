@@ -1,0 +1,10 @@
+span{
+  margin-right: 10px;
+  cursor: pointer;
+}
+.active {
+  font-weight: 700;
+}
+.passive {
+  font-weight: normal;
+}
