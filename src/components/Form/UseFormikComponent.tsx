@@ -411,6 +411,7 @@ export const UseFormikComponent: React.FC<any> = (props) => {
                                 <button
                                     className={s.btn}
                                     type={'button'}
+                                    //setFormValues - заполняет все поля формы
                                     onClick={() => setFormValues(savedValues)}
                                 > Load saved data
                                 </button>
