@@ -6,16 +6,17 @@ import UncontrolledAccordion
     from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {Raiting, RatingType} from "./components/Raiting/Raiting";
 import {AccordionWithControl} from "./components/AccordionWithControl/AccordionWithControl";
-import {OnOffWithControl} from "./components/OnOfWithControl/OnOffWithControl";
 import {Select} from "./components/Select/Select";
-import {SelectDim} from "./components/SelectDim/SelectDim";
 import UncontrolledAccordionWithUseReducer
     from "./components/UncontrolledAccordion/UncontrolledAccordionWithUseReducer";
-import {Cube3D} from "./components/3D-Cube/Cube3D";
-import reactImg from "./components/3D-Cube/assets/react.jpg";
-import reduxImg from "./components/3D-Cube/assets/redux.jpeg";
-import jsImg from "./components/3D-Cube/assets/js.jpg";
-import tsImg from "./components/3D-Cube/assets/ts.png";
+import {Container} from '@mui/material'
+import {Route, Routes } from 'react-router-dom';
+
+import {PaginationWithMaterial} from "./components/Pagination/PaginationWithMaterialUI/PaginationWithMaterial";
+import {NotFoundPageForPagination} from "./components/Pagination/PaginationWithMaterialUI/pages/NotFoundPageForPagination";
+import {AboutPageForPagination} from "./components/Pagination/PaginationWithMaterialUI/pages/AboutPageForPagination";
+import {DebounceThrottle} from "./components/Debounce_Throttle/Debounce_Throttle";
+import {Debounce} from "./components/Debounce_Throttle/Alternative/Debounce";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingType>(0)
@@ -49,11 +50,6 @@ function App() {
                 onChange={() => setCollapsedAccordion(!collapsedAccordion)}
             />
             <OnOff onChange={setOn}/> {on.toString()}
-            {/* <OnOffWithControl
-              on={on}
-              onChange={setOn}
-
-          />*/}
             <Select
                 value={valueSelect}
                 setValueSelect={setValueSelect}
@@ -64,6 +60,15 @@ function App() {
                     {id: '4', name: 'London'},
                 ]}
             />
+{/*            <Container maxWidth={'md'}>
+                <Routes>
+                    <Route path={'/'} element={<PaginationWithMaterial />}/>
+                    <Route path={'/:page'} element={<PaginationWithMaterial />}/>
+                    <Route path={'/about'} element={<AboutPageForPagination />}/>
+                    <Route path={'*'} element={<NotFoundPageForPagination />}/>
+                </Routes>
+            </Container>*/}
+            <PaginationWithMaterial />
         </div>
     );
 }

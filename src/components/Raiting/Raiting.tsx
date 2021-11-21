@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import '../UncontrolledRaiting/Raiting.css';
 
 export type RatingType = 0 | 1 | 2 | 3 | 4 | 5;

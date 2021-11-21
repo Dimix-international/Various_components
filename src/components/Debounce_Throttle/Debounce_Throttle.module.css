@@ -1,0 +1,11 @@
+.container {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+.column {
+    flex: 0 1 50%;
+    border: 1px solid black;
+    padding: 10px;
+}
