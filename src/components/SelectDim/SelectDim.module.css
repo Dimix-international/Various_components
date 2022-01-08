@@ -18,7 +18,7 @@
 }
 .item{
     cursor: pointer;
-    padding: 3px 0px;
+    padding: 3px 0;
 }
 .item.hover{
     background-color: blue;

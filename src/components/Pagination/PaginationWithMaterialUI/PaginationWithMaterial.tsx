@@ -67,20 +67,20 @@ export const PaginationWithMaterial: React.FC<PaginationWithMaterialType> = Reac
     useEffect(() => {
         if (loader) {
             const timer = setTimeout(() =>
-            axios.get<ResponseGetType>(BASE_URL + `query=${query}&page=${page - 1}`) // page - 1 - на этом сервисе нумерация страниц идет с 0
-                .then(({data}) => {
-                    setPosts(data.hits);
-                    setPageQty(data.nbPages);
+                axios.get<ResponseGetType>(BASE_URL + `query=${query}&page=${page - 1}`) // page - 1 - на этом сервисе нумерация страниц идет с 0
+                    .then(({data}) => {
+                        setPosts(data.hits);
+                        setPageQty(data.nbPages);
 
-                    //если мы находимя на 49 странице, и делаем новый запрос, у которого 4 страницы - устанавливаем текущую страницу на 1
-                    if (data.nbPages < page) {
-                        setPage(1);
-                        navigate('/', {replace: true}); //чтобы в поисковой строке обновилось, если страниц стало меньше
-                    }
-                })
-                .finally(() => {
-                    setLoader(false);
-                }), 500)
+                        //если мы находимя на 49 странице, и делаем новый запрос, у которого 4 страницы - устанавливаем текущую страницу на 1
+                        if (data.nbPages < page) {
+                            setPage(1);
+                            navigate('/', {replace: true}); //чтобы в поисковой строке обновилось, если страниц стало меньше
+                        }
+                    })
+                    .finally(() => {
+                        setLoader(false);
+                    }), 500)
 
             return () => {
                 clearTimeout(timer)
@@ -92,9 +92,27 @@ export const PaginationWithMaterial: React.FC<PaginationWithMaterialType> = Reac
         setLoader(true);
         setPage(num);
     }
+    //вариант debounce еще один
+   /* const debounceSrcDoc = useDebounced(...., 500)
 
+    function useDebounced(value: any, ms: number) {
 
+        let [debouncedValue, setDebouncedValue] = useState(value);
 
+        useEffect(() => {
+            const timeoutId = window.setTimeout(() => {
+                setDebouncedValue(value)
+            }, ms)
+
+            return () => {
+                clearTimeout(timeoutId)
+            }
+
+        },[value, ms])
+
+        return debouncedValue;
+    }
+*/
     return (
         <>
             <TextField

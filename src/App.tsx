@@ -10,13 +10,16 @@ import {Select} from "./components/Select/Select";
 import UncontrolledAccordionWithUseReducer
     from "./components/UncontrolledAccordion/UncontrolledAccordionWithUseReducer";
 import {Container} from '@mui/material'
-import {Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 import {PaginationWithMaterial} from "./components/Pagination/PaginationWithMaterialUI/PaginationWithMaterial";
 import {NotFoundPageForPagination} from "./components/Pagination/PaginationWithMaterialUI/pages/NotFoundPageForPagination";
 import {AboutPageForPagination} from "./components/Pagination/PaginationWithMaterialUI/pages/AboutPageForPagination";
 import {DebounceThrottle} from "./components/Debounce_Throttle/Debounce_Throttle";
 import {Debounce} from "./components/Debounce_Throttle/Alternative/Debounce";
+import {UseFormHook} from "./components/Form/UseFormHook/UseFormHook";
+import {Counter} from "./components/UseContext/CounterUseContext/Counter";
+import {CounterProvider} from "./components/UseContext/CounterUseContext/counterContext";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingType>(0)
@@ -37,7 +40,7 @@ function App() {
             />
             <UncontrolledRaiting onChange={() => ratingValue}/>
             <UncontrolledAccordion titleValue={'Menu'}/>
-            <UncontrolledAccordionWithUseReducer titleValue={'Reducer'}/>
+            <UncontrolledAccordionWithUseReducer titleValue={'Use Reducer'}/>
             <AccordionWithControl
                 titleValue={'Users'}
                 collapsed={collapsedAccordion}
@@ -60,7 +63,7 @@ function App() {
                     {id: '4', name: 'London'},
                 ]}
             />
-{/*            <Container maxWidth={'md'}>
+            {/*            <Container maxWidth={'md'}>
                 <Routes>
                     <Route path={'/'} element={<PaginationWithMaterial />}/>
                     <Route path={'/:page'} element={<PaginationWithMaterial />}/>
@@ -68,7 +71,11 @@ function App() {
                     <Route path={'*'} element={<NotFoundPageForPagination />}/>
                 </Routes>
             </Container>*/}
-            <PaginationWithMaterial />
+            <Debounce/>
+            <UseFormHook/>
+            <CounterProvider>
+                <Counter/>
+            </CounterProvider>
         </div>
     );
 }
