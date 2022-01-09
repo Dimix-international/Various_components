@@ -1,0 +1,21 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+input[type="search"] {
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    border-radius: 1rem;
+}
+
+.form-radio {
+    padding: 1rem 0;
+}
+.form-radio > *:last-child {
+    margin-left: 1rem;
+}
+
+li {
+    line-height: 1.6;
+}

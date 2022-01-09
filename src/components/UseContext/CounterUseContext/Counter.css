@@ -5,7 +5,6 @@
 }
 .counter {
     appearance: none;
-    border: var(--border) var(--text-clor);
     color: var(--text-clor);
     background-color: var(--faded-back);
     padding: 0.2rem 0.5rem;
@@ -21,5 +20,6 @@
     text-align: center;
     font-size: 2rem;
     color: var(--text-clor);
+    border: var(--border) var(--text-clor);
     margin-top: 10px;
 }

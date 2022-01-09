@@ -1,7 +1,6 @@
 .layout {
     background-color: var(--bg-light);
     color: #000;
-    height: 100vh;
 }
 .layout.dark{
     background-color: var(--bg-dark);
