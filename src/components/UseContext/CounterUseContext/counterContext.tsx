@@ -1,7 +1,7 @@
 import {
     createContext,
     ReactNode,
-    useContext,
+    useContext, useMemo,
     useReducer
 } from "react";
 
@@ -9,7 +9,6 @@ export enum ACTIONS_COUNTER {
     INCREMENT_COUNT = 'INCREMENT_COUNT',
     DECREMENT_COUNT = 'DECREMENT_COUNT',
 }
-
 type ActionType = {
     type: ACTIONS_COUNTER
 }
@@ -37,8 +36,10 @@ export const CounterProvider = ({children}: { children: ReactNode }) => {
 
     const [state, dispatch] = useReducer(counterReducer, defaultState);
 
+    const value = useMemo(() => ({state, dispatch}), [state])
+
     return (
-        <CounterContext.Provider value={{state, dispatch}}>
+        <CounterContext.Provider value={value}>
             {children}
         </CounterContext.Provider>
     )
