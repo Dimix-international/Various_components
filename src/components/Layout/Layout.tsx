@@ -4,7 +4,7 @@ import {useTheme} from "../../providers/ThemeProvider";
 
 export const Layout = React.memo(({children}: { children: ReactNode }) => {
 
-    const {state, dispatch} = useTheme();
+    const {state} = useTheme();
     const finallyClass =  state.theme === 'Dark' ? `${s.layout} ${s.dark}` : s.layout
     return (
         <div className={finallyClass}>

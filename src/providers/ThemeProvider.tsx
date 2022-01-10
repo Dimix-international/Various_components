@@ -20,7 +20,7 @@ const defaultState = {
 type StateType = typeof defaultState;
 
 interface IContextTheme {
-    state: typeof defaultState,
+    state: StateType,
     dispatch: (action: ActionType) => void
 }
 
@@ -56,3 +56,5 @@ export const useTheme = () => {
     if (!context) throw new Error('useTheme must be used inside a ThemeProvider')
     return context
 }
+
+

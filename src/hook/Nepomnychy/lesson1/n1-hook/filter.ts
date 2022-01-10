@@ -16,6 +16,7 @@ export const useFilter = (props: FilterType) => {
         delay: 300
     });
 
+
     const availableItems = activeSearchValue
         ? items.filter((item) => RegExp(activeSearchValue, "i").test(item[filterProp] as keyof TodosType))
         : items;

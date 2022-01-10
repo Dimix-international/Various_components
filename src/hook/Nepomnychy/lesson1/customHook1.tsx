@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {TodosType} from "./dataCustTodo";
 import './styleCust.css'
 import {useFilter} from "./n1-hook/filter";
@@ -81,7 +80,7 @@ export const CustomHook1 = ({ list }: {list: TodosType []}) => {
     const {availableItems, enteredSearchValue, setEnteredSearchValue}
         = useFilter({items:list, filterProp: 'title'})
 
-    const {sortMode, setSortMode, sortedItems} = useSort({items:list, sortProp: 'title'});
+    const {sortMode, setSortMode, sortedItems} = useSort({items:availableItems, sortProp: 'title'});
 
     return (
         <div className="App">
