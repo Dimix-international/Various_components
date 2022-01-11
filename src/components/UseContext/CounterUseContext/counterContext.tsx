@@ -1,40 +1,45 @@
-import {
-    createContext,
-    ReactNode,
-    useContext, useMemo,
-    useReducer
-} from "react";
+import {createContext, ReactNode, useContext, useMemo, useReducer} from "react";
 
-export enum ACTIONS_COUNTER {
-    INCREMENT_COUNT = 'INCREMENT_COUNT',
-    DECREMENT_COUNT = 'DECREMENT_COUNT',
+export enum ActionsCounter {
+    IncrementCount = 'increment-count',
+    DecrementCount = 'decrement-count',
+    Default = 'default'
 }
 type ActionType = {
-    type: ACTIONS_COUNTER
+    type: ActionsCounter;
 }
 
-const defaultState = {count: 0};
-export type StateType = typeof defaultState;
+export type StateType = {count: number};
 export type DispatchType = (action: ActionType) => void
+export type CounterCollectionContextType  = {state: StateType, dispatch: DispatchType}
 
+type CounterReducerReturnType = {
+    [key in ActionsCounter]: () => StateType
+}
 
-const CounterContext = createContext<{ state: StateType, dispatch: DispatchType }
-    | undefined>(undefined);
+const CounterContext = createContext<
+    CounterCollectionContextType | undefined>(undefined);
 
 const counterReducer = (state: StateType, action: ActionType): StateType => {
+    const incrementValue = () => {
+        return {...state, count: state.count + 1}
+    }
+
+    const decrementValue = () => {
+        return {...state, count: state.count - 1}
+    }
 
     const actions = {
-        [`${ACTIONS_COUNTER.INCREMENT_COUNT}`]: () => incrementValue(state),
-        [`${ACTIONS_COUNTER.DECREMENT_COUNT}`]: () => decrementValue(state),
+        'increment-count': incrementValue,
+        'decrement-count': decrementValue,
         'default': () => state
-    }
+    } as CounterReducerReturnType;
 
     return (actions[action.type] || actions['default'])();
 }
 
 export const CounterProvider = ({children}: { children: ReactNode }) => {
-
-    const [state, dispatch] = useReducer(counterReducer, defaultState);
+    const [state, dispatch] = useReducer(counterReducer, {count: 0});
 
     const value = useMemo(() => ({state, dispatch}), [state])
 
@@ -46,16 +51,8 @@ export const CounterProvider = ({children}: { children: ReactNode }) => {
 }
 //вызов контекста и проверка что контекст должен использоваться внутри CounterProvider
 export const useCounter = () => {
-
     const context = useContext(CounterContext);
-    if (!context) throw new Error('useCounter must be used inside a Counter')
+    if (!context) throw new Error('useCounter must be used inside a Counter');
+
     return context
-}
-
-const incrementValue = (state: StateType) => {
-    return {...state, count: state.count + 1}
-}
-
-const decrementValue = (state: StateType) => {
-    return {...state, count: state.count - 1}
 }
