@@ -19,7 +19,7 @@ const Controller = ({control, register, name, rules, render}: any) => {
         control,
         name
     });
-    console.log(errors)
+
 
     return render({
         value,

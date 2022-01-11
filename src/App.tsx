@@ -15,8 +15,9 @@ import {Counter} from "./components/UseContext/CounterUseContext/Counter";
 import {CounterProvider} from "./components/UseContext/CounterUseContext/counterContext";
 import {ThemeProvider, ThemeType, useTheme} from './providers/ThemeProvider';
 import {Layout} from "./components/Layout/Layout";
-import {CustomHook1} from "./hook/Nepomnychy/lesson1/customHook1";
-import {todos} from "./hook/Nepomnychy/lesson1/dataCustTodo";
+import {CustomHook2} from "./hook/Nepomnychy/lesson2/CustomHook2";
+import {MininHook} from "./hook/Minin/MininHook";
+import {AppKalach} from "./hook/Kalach/AppKalach";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingType>(0)
@@ -31,7 +32,10 @@ function App() {
         <ThemeProvider>
             <Layout>
                 <div className={'App'}>
-                    <CustomHook1 list={todos} />
+                    {/*<MininHook />*/}
+                    <AppKalach />
+                    {/*<CustomHook1 list={todos} />*/}
+                    <CustomHook2 />
                     <PageTitle title={'This is app'}/>
                     <PageTitle title={'My friends!'}/>
                     <Raiting
